@@ -1,5 +1,5 @@
 Great Work on the Test Suite!
-First off, the test suite is really well set up and gave clear guidance on what functionality was expected for the store. Having 23 tests already structured made it super easy to understand the core features needed (like adding items, searching, and clearing the cart), which made building the app step-by-step really smooth.
+First off, the test suite is really well set up and gave clear guidance on what functionality was expected for the store. Having 20 tests already structured made it super easy to understand the core features needed (like adding items, searching, and clearing the cart), which made building the app step-by-step really smooth.
 
 What works well now:
 Currently, all the tests render the main <App/> component directly. This is awesome for integration testing because it confirms that all parts (Header, SearchBar, Product Cards, and Cart) talk to each other and update state properly when a user interacts with the app.
