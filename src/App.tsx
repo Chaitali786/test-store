@@ -22,18 +22,23 @@ export default function App() {
           <div className="mb-6">
             <SearchBar searchTerm={searchTerm} onSearchChange={setSearchTerm} />
           </div>
-          <div className="mb-8 grid grid-cols-1 gap-6 sm:grid-cols-3">
-            {filteredProducts.map((product) => (
-              <ProductCard
-            key={product.id}
-            name={product.name}
-            price={product.price}
-            image={product.image}
-            
-            onAddToCart={() => setCart((prev) => [...prev, product])}
-          />
-            ))}
-          </div>
+          {filteredProducts.length === 0 ? (
+            <p className="py-8 text-center text-gray-500">
+              No products match your search
+            </p>
+          ) : (
+            <div className="mb-8 grid grid-cols-1 gap-6 sm:grid-cols-3">
+              {filteredProducts.map((product) => (
+                <ProductCard
+                  key={product.id}
+                  name={product.name}
+                  price={product.price}
+                  image={product.image}
+                  onAddToCart={() => setCart((prev) => [...prev, product])}
+                />
+              ))}
+            </div>
+          )}
           <ShoppingCart items={cart} onRemove={() => setCart([])} />
         </main>
       </div>

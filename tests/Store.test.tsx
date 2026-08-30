@@ -157,4 +157,14 @@ describe("Mini Store Comprehensive Tests", () => {
     fireEvent.change(searchBox, { target: { value: "RUNNING" } });
     expect(screen.getByText("Running Shoes")).toBeInTheDocument();
   });
+
+  it("displays a fallback message when search yields zero products", () => {
+  render(<App />);
+
+  const searchInput = screen.getByPlaceholderText(/search products.../i);
+  fireEvent.change(searchInput, { target: { value: "NonExistentItem123" } });
+
+  expect(screen.queryByText(/Smart Watch/i)).not.toBeInTheDocument();
+  expect(screen.getByText(/no products match your search/i)).toBeInTheDocument();
+  });
 });
